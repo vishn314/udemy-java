@@ -1,6 +1,6 @@
 package com.udemy.java.runtimePolymorphism;
 
-public class Animal {
+public abstract class Animal {
     public void makeSound(){
         System.out.println("Grrr");
     }
