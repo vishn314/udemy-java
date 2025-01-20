@@ -34,7 +34,7 @@ public class Caller {
            If we change the interface GreetingService to have one abstract method accepting Dog types
            Compiler will consider name as a Dog type and will let us perform Dog behavior on name - makenoise(), walk() etc
          */
-        GreetingService g2 = (name) -> System.out.println("Hello " + name);
-        g2.greet("gopal");
+        GreetingService g2 = (name) -> System.out.println("Hello " + name); // implementation
+        g2.greet("gopal");// this guy calls and executes or runs the implementation
     }
 }
