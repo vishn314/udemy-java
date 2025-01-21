@@ -1,4 +1,2 @@
-The title to this repo may be misleading. 
-I just follwed the instructor with the setup in the naming of the project
-This repo actually focusus on practicing Lambda functions and Streams functionality in Java language in particular.
-So Udemy-Lambda=Streams would have been a better title.
+The title of this repository may be misleading. I named the project as the instructor instructed during the setup. 
+This repository actually focuses on practicing Lambda functions and Streams functionality specifically in the Java programming language. A more appropriate title would have been "Udemy: Lambda and Streams."
