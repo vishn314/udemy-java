@@ -1,6 +1,6 @@
 package com.udemy.java.assignment.task1;
 
-public class Caller {
+public class CallerForAssignment1 {
     public static void main(String[] args) {
         /*
         add lambda function
