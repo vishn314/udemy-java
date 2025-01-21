@@ -79,6 +79,7 @@ public class Caller {
         Method accepts three string objects x, y and z, on the first object x , we perform replaceFirst(y,z) passing the remaining two string objects as parameters
         Java will take the order as (object, first parameter, second parameter) and apply the parameters in the order received to the function definition
         IN JAVA DOC : public String replaceAll(String regex, String replacement)
+        // (s1,s2,s3) -> s1.replaceFirst(s2,s3)
          */
         System.out.println("Example 6: ----------------------------------------------------------------");
         //  Regular lambda ----------------------------------------------------------------
