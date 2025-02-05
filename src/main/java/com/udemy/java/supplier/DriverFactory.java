@@ -9,8 +9,8 @@ import java.util.function.Supplier;
 import java.util.Map;
 
 public class DriverFactory {
-    private static final Supplier<WebDriver> firefoxSupplier = FirefoxDriver::new;
-    private static final Supplier<WebDriver> chromeSupplier = ChromeDriver::new;
+    private static final Supplier<WebDriver> firefoxSupplier = () ->  new FirefoxDriver();
+    private static final Supplier<WebDriver> chromeSupplier = ChromeDriver::new; // this is same as above - this is the method reference equivalent
     private static final Map <String, Supplier<WebDriver>> MAP = new HashMap<>();
 
     static{
