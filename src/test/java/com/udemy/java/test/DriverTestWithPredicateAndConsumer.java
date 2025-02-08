@@ -24,8 +24,6 @@ public class DriverTestWithPredicateAndConsumer {
         this.driver.get("https://www.google.com/");
         List<WebElement> linksInGoogle = this.driver.findElements(By.tagName("a"));
 
-        System.out.println("Before :: " + linksInGoogle.size());
-
         Predicate <WebElement> isBlank = (e) ->{
            return e.getText().trim().isEmpty();
         };
@@ -33,6 +31,8 @@ public class DriverTestWithPredicateAndConsumer {
         Consumer<WebElement> printElementText = (e) -> {
             System.out.println(e.getText());
         };
+
+        System.out.println("Before :: " + linksInGoogle.size());
 
         linksInGoogle.removeIf(isBlank);
 
