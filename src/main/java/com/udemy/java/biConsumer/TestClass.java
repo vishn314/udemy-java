@@ -1,4 +1,4 @@
-package biConsumer;
+package com.udemy.java.biConsumer;
 
 import java.util.HashMap;
 import java.util.Map;

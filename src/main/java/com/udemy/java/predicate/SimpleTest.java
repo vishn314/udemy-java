@@ -1,4 +1,4 @@
-package predicate;
+package com.udemy.java.predicate;
 
 import java.util.function.Predicate;
 
