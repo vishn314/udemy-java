@@ -79,6 +79,18 @@ public class AssignmentGoogleLinkText {
                 .map(String::toUpperCase)
                 .filter(e -> !e.contains("S")) // cannot use method reference as we are passing an argument and also using ! operation
                 .forEach(System.out::println);
+
+        linksInGoogle = this.driver.findElements(By.tagName("ae2w4r32rd")); // Nothing should be returned
+
+        System.out.println("Stream on empty list");
+        linksInGoogle.stream()
+                .map(WebElement::getText)
+                .map(String::trim)
+                .filter(e -> !e.isEmpty()) // cannot use method reference as we performing ! after method
+                .map(String::toUpperCase)
+                .filter(e -> !e.contains("S")) // cannot use method reference as we are passing an argument and also using ! operation
+                .forEach(System.out::println);
+
     }
 
     @AfterTest
