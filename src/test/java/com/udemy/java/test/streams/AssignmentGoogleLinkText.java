@@ -44,7 +44,7 @@ public class AssignmentGoogleLinkText {
             System.out.println(e.getText());
         };
 
-
+        System.out.println("Piggy backing from earlier methods");
         linksInGoogle.stream()
 //                .peek(i -> System.out.println("Pre filter " + i.getText()))
                 .filter(isBlank.negate())
@@ -55,10 +55,29 @@ public class AssignmentGoogleLinkText {
 //                .peek(i -> System.out.println("post map  " + i))
                 .forEach(System.out::println);
 
+        System.out.println("write everything fresh");
         linksInGoogle.stream()
-                .filter(e -> { return !e.getText().trim().isEmpty();})
-                .filter(e -> !e.getText().toLowerCase().contains("s"))
+                .filter(e -> { return !e.getText().trim().isEmpty();}) // filter non empty elements, notice we have a multi line lambda
+                .filter(e -> !e.getText().toLowerCase().contains("s")) // filter out elements containing s
                 .map(i -> i.getText().toUpperCase())
+                .forEach(System.out::println);
+
+        System.out.println("convert to string first");
+        linksInGoogle.stream()
+                .map(e ->e.getText())
+                .map(e -> e.trim())
+                .filter(e -> !e.isEmpty())
+                .map(e -> e.toUpperCase())
+                .filter(e -> !e.contains("S"))
+                .forEach(e -> System.out.println(e));
+
+        System.out.println("convert to string first and use method reference");
+        linksInGoogle.stream()
+                .map(WebElement::getText)
+                .map(String::trim)
+                .filter(e -> !e.isEmpty()) // cannot use method reference as we performing ! after method
+                .map(String::toUpperCase)
+                .filter(e -> !e.contains("S")) // cannot use method reference as we are passing an argument and also using ! operation
                 .forEach(System.out::println);
     }
 
