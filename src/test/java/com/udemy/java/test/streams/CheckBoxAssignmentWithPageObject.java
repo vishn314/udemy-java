@@ -2,6 +2,7 @@ package com.udemy.java.test.streams;
 
 import com.udemy.java.supplier.DriverFactory;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -28,5 +29,10 @@ public class CheckBoxAssignmentWithPageObject {
     @DataProvider(name ="GenderInput")
     public String[] genderProvider(){
         return new String[] {"male", "female"};
+    }
+
+    @AfterTest
+    public void quitDriver(){
+        this.driver.quit();
     }
 }
