@@ -1,4 +1,4 @@
-package pages;
+package com.udemy.java.pages;
 
 import com.google.common.util.concurrent.Uninterruptibles;
 import org.openqa.selenium.By;

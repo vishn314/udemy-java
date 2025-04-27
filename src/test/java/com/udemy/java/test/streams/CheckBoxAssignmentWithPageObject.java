@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pages.VinothPageWithCheckbox;
+import com.udemy.java.pages.VinothPageWithCheckbox;
 
 public class CheckBoxAssignmentWithPageObject {
     private WebDriver driver;
