@@ -17,6 +17,7 @@ public class GenderBasedCheckboxAssignment {
     public void getDriver() {
         this.driver = DriverFactory.getDriver("chrome");
     }
+
     @Test
     public void testDriver() {
         this.driver.get("https://vins-udemy.s3.amazonaws.com/java/html/java8-stream-table.html");
@@ -24,16 +25,16 @@ public class GenderBasedCheckboxAssignment {
         List<WebElement> tableRows = this.driver.findElements(By.tagName("tr"));
 
         tableRows.stream()
-                .filter((rows) -> rows.findElements(By.tagName("th")).isEmpty()) //find rows that have data
+                .filter((rows) -> rows.findElements(By.tagName("th")).isEmpty()) //filter out header rows
                 .map(row -> {
-                            List<WebElement> tDatum = row.findElements(By.tagName("td"));
-                            System.out.println(tDatum.get(1).getText());
-                            if (tDatum.get(1).getText().equals("Male")){
-                                return tDatum.get(3).findElement(By.tagName("input"));
-                            }
-                            return tDatum.get(2);
-                        })
-                .forEach(WebElement::click);
+                    List<WebElement> tDatum = row.findElements(By.tagName("td")); // convert each row into a list of columns
+                    System.out.println(tDatum.get(1).getText()); // print gender for a given list object, second entry in list is gender
+                    if (tDatum.get(1).getText().equals("Male")) { // if gender is male
+                        return tDatum.get(3).findElement(By.tagName("input")); // transform the list into child of the 4th list entry
+                    }
+                    return tDatum.get(2); // I have to return something that is does not have any impact by clicking on it. This is a return on a td that has nothing but a text.
+                })
+                .forEach(WebElement::click); // click check box or the dummy text element in "female" occurences
 
         System.out.println("did it work");
 

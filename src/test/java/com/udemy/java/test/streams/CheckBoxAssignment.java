@@ -19,22 +19,26 @@ public class CheckBoxAssignment {
     public void getDriver() {
         this.driver = DriverFactory.getDriver("chrome");
     }
+
     @Test
     public void testDriver() {
         this.driver.get("https://vins-udemy.s3.amazonaws.com/java/html/java8-stream-table.html");
 
+        // My solution
         List<WebElement> tableRows = this.driver.findElements(By.tagName("tr"));
-
-        tableRows.stream()
-                .filter((rows) -> !rows.findElements(By.tagName("td")).isEmpty()) //find rows that have data
+        tableRows.stream().filter((rows) -> !rows.findElements(By.tagName("td")).isEmpty()) //find rows that have data
                 .map(row -> {
-                            List<WebElement> tDatum = row.findElements(By.tagName("td"));
-                           return  tDatum.get(3);
-                        })
-                .forEach(td -> td.findElement(By.tagName("input")).click());
+                    List<WebElement> tDatum = row.findElements(By.tagName("td"));
+                    return tDatum.get(3);
+                }).forEach(td -> td.findElement(By.tagName("input")).click());
 
-        System.out.println("did it work");
+        System.out.println("check box should be checked");
 
+        //Vinoth's solution
+        List<WebElement> checkBoxes = this.driver.findElements(By.tagName("input"));
+        checkBoxes.stream().forEach(WebElement::click);
+
+        System.out.println("check box should be un checked");
     }
 
     @AfterTest
